@@ -1,8 +1,20 @@
-node {
-    stage('Hello') {
-        echo 'Hello, Jenkins!'
+
+
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            agent any
+            steps {
+                script {
+                    showMavenVersion('mvn version')
+                }
+            }
+        }
     }
-    stage('World') {
-        echo 'Hello, World!'
-    }
+}
+
+def showMavenVersion(String a) {
+        bat 'mvn -v'
+        echo a
 }
