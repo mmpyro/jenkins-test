@@ -1,4 +1,5 @@
-
+def x = "hello"
+String y = "World"
 
 pipeline {
     agent any
@@ -7,6 +8,8 @@ pipeline {
             agent any
             steps {
                 script {
+                    echo x
+                    echo y
                     showMavenVersion('mvn version')
                 }
             }
@@ -17,3 +20,4 @@ pipeline {
 def showMavenVersion(String a) {
         echo "Hello ${a}"
 }
+
