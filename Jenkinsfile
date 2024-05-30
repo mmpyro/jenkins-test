@@ -15,6 +15,6 @@ pipeline {
 }
 
 def showMavenVersion(String a) {
-        bat 'mvn -v'
+        sh 'mvn -v'
         echo a
 }
